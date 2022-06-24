@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }}{{ if .Title }} - {{ end }}Czetech</title>
+    <link rel="stylesheet" href="{{ (resources.Get "css/main.css").RelPermalink }}">
+  </head>
+  <body>
+    <header>
+      <menu>
+        {{ range .Site.Menus.main }}
+          <li>
+            {{ if .URL }}
+            <a href="{{ .URL }}">{{ .Name }}</a>
+            {{ else }}
+            {{ .Name }}
+            {{ end }}
+            {{ if .HasChildren }}
+              <ul>
+              {{ range .Children }}
+                <li>
+                  <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+              {{ end }}
+              </ul>
+            {{ end }}
+          </li>
+        {{ end }}
+      <menu>
+    </header>
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+  </body>
+  <footer>
+    <div>
+      <a href="https://twitter.com/Czetech"><img src="{{ (resources.Get "icons/twitter-117.svg").RelPermalink }}" class="text-img" /></a>
+      <a href="https://github.com/czetech/"><img src="{{ (resources.Get "icons/github-logo-6532.svg").RelPermalink }}" class="text-img" /></a>
+      <a href="https://www.facebook.com/czetech"><img src="{{ (resources.Get "icons/facebook-5222.svg").RelPermalink }}" class="text-img" /></a>
+    </div>
+    <a href="{{ .Site.Params.source }}">Page source</a>
+  </footer>
+</html>
