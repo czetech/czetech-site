@@ -1,0 +1,16 @@
+apiVersion: v2
+name: czetech-site
+version: 0.1.0
+kubeVersion: ">= 1.14.0-0"
+description: Czetech website.
+type: application
+keywords:
+- website
+home: https://www.cze.tech/
+sources:
+- https://github.com/czetech/czetech-site
+maintainers:
+- name: Petr Czepiec
+  email: petr@czepiec.me
+  url: https://www.czepiec.me/
+appVersion: 0.1.0

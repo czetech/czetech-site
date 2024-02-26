@@ -1,0 +1,19 @@
+baseURL: http://example.org/
+languageCode: en-us
+title: My New Hugo Site
+menu:
+  main:
+  - identifier: cases
+    name: Case Studies
+
+params:
+  contact:
+    tel: "+421944133702"
+    email: hello@cze.tech
+    pgp: DE10ED6817509A0A4AEC6454CCDB3F595BE40851
+    address:
+      street: Auhofstraße 142A/6
+      city: Wien
+      postcode: 1130
+      country: Austria
+  source: https://github.com/czetech/czetech-site

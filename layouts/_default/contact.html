@@ -1,0 +1,35 @@
+{{ define "main" }}
+<p>Let's talk technology & business</p>
+<div style="display: grid; grid-template-columns: max-content 1fr; grid-gap: 1ch .7em;">
+  {{ $image := resources.Get "icons/phone-504.svg" }}
+  <img src="{{ $image.RelPermalink }}" class="text-img">
+  <span>+421 944 133 702</span>
+  {{ $image := resources.Get "icons/mail-2569.svg" }}
+  <img src="{{ $image.RelPermalink }}" class="text-img">
+  <span>{{ .Site.Params.contact.email }}</span>
+  {{ $image := resources.Get "icons/key-4363.svg" }}
+  <img src="{{ $image.RelPermalink }}" class="text-img">
+  <a href="{{ (resources.Get "keys/czetech-hello.asc").RelPermalink }}">
+  {{ range $i := (seq 0 (div (len .Site.Params.contact.pgp) 4)) -}}
+    <span style="display: inline-block; margin-right: 1ch;">{{ substr $.Site.Params.contact.pgp (mul $i 4) 4 }}</span>
+  {{- end }}
+  </a>
+  {{ $image := resources.Get "icons/pin-48.svg" }}
+  <img src="{{ $image.RelPermalink }}" class="text-img">
+  <span>
+    <strong>Austria (postal address and offices):</strong><br />
+    Czetech GmbH<br />
+    {{ .Site.Params.contact.address.street }}<br />
+    {{ .Site.Params.contact.address.postcode }} {{ .Site.Params.contact.address.city }}<br />
+    {{ .Site.Params.contact.address.country }}<br />
+  </span>
+  <img src="{{ $image.RelPermalink }}" class="text-img">
+  <span>
+    <strong>Slovakia (postal address):</strong><br />
+    Petr Czepiec - Czetech<br />
+    Jozefa Hagaru 2544/5<br />
+    831 52 Bratislava<br />
+    Slovakia<br />
+  </span>
+</div>
+{{ end }}
